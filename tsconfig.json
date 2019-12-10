@@ -1,0 +1,9 @@
+{
+	"compilerOptions": {
+		"target": "es5", // versão javascript a ser compilado
+		"module": "amd", // para trabalhar com módulo em JS
+		"rootDir": "src", // raiz da nossa aplicação
+		"outDir": "public/js/", // alvo da compilação
+		"sourceMap": true
+	}
+}
