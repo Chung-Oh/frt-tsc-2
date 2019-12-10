@@ -5,5 +5,8 @@
 		"rootDir": "src", // raiz da nossa aplicação
 		"outDir": "public/js/", // alvo da compilação
 		"sourceMap": true
-	}
+	},
+	"files": [
+		"src/test.ts"
+	]
 }

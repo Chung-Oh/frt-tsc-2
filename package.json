@@ -1,15 +1,19 @@
 {
-  "name": "frt-tsc-2",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  /* npm install typescript --save-dev */
-  "devDependencies": {
-    "typescript": "^3.7.3"
-  }
+    "name": "frt-tsc-2",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "tsc": "./node_modules/.bin/tsc -w",
+        "server": "./node_modules/.bin/live-server ./public",
+        "dev": "./node_modules/.bin/concurrently \"npm run tsc\" \"npm run server\"",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "concurrently": "^5.0.1",
+        "live-server": "^1.2.1",
+        "typescript": "^3.7.3"
+    }
 }
