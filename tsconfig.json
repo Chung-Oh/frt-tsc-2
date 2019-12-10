@@ -3,8 +3,9 @@
 		"target": "es5", // versão javascript a ser compilado
 		"module": "amd", // para trabalhar com módulo em JS
 		"rootDir": "src", // raiz da nossa aplicação
-		"outDir": "public/js/", // alvo da compilação
-		"sourceMap": true
+		"outDir": "public/js", // alvo da compilação
+		"sourceMap": true, // ativa source map para debug client, no devtools do browser irá ter acesso no src/
+		"inlineSources": true // ativa source map para debug client com servidores(aqui Live Server)
 	},
 	"files": [
 		"src/test.ts"
