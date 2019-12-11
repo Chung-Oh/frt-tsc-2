@@ -1,10 +1,14 @@
 # Typescript in practice with HTTP
 
+**API**
+
+Used JSONPlaceholder API for post data (https://jsonplaceholder.typicode.com/posts)
+
 **Used Packages**
 
 - TypeScript `npm install typescript --save-dev`
 - Live Server `npm install live-server --save-dev`
-- Concurrently(will compile Typescript for JS and up Live Server,  configure in package.json) `npm install concurrently --save-dev`
+- Concurrently(will compile Typescript for JS and up Live Server, configure in package.json) `npm install concurrently --save-dev`
 
 **Basic**
 
