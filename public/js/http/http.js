@@ -6,25 +6,28 @@ define(["require", "exports"], function (require, exports) {
         HttpVerbs["GET"] = "GET";
         HttpVerbs["POST"] = "POST";
     })(HttpVerbs || (HttpVerbs = {}));
-    var Http = /** @class */ (function () {
-        function Http() {
+    class Http {
+        get(url) {
+            return new Promise((resolve, reject) => {
+                let xhttp = this.createXhttp(HttpVerbs.GET, url);
+                this.configureCallbacks(xhttp, resolve, reject);
+                xhttp.send();
+            });
         }
-        Http.prototype.get = function (url) {
-            var xhttp = this.createXhttp(HttpVerbs.GET, url);
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    // callable(this.responseText);
-                }
-            };
-            xhttp.send();
-        };
-        Http.prototype.createXhttp = function (verb, url) {
-            var xhttp = new XMLHttpRequest();
+        createXhttp(verb, url) {
+            let xhttp = new XMLHttpRequest();
             xhttp.open(verb, url, true);
             return xhttp;
-        };
-        return Http;
-    }());
+        }
+        configureCallbacks(xhttp, resolve, reject) {
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    resolve(this.responseText);
+                }
+                // reject(this.responseText);
+            };
+        }
+    }
     exports.default = Http;
 });
 //# sourceMappingURL=http.js.map

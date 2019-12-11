@@ -12,8 +12,12 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
+        "@types/es6-promise": "^3.3.0",
         "concurrently": "^5.0.1",
         "live-server": "^1.2.1",
         "typescript": "^3.7.3"
+    },
+    "dependencies": {
+        "es6-promise": "^4.2.8"
     }
 }

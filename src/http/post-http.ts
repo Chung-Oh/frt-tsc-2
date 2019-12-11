@@ -11,8 +11,11 @@ export default class PostHttp {
 		this.http = new Http();
 	}
 
-	query(callable: Callable, callableError) {
-		this.http.get('https://jsonplaceholder.typicode.com/posts');
+	query() {
+		this.http.get('https://jsonplaceholder.typicode.com/posts')
+			.then(function (responseText) {
+				console.log(JSON.parse(responseText));
+			});
 	}
 
 	save() {
@@ -20,7 +23,7 @@ export default class PostHttp {
 		xhttp.open('GET', 'https://jsonplaceholder.typicode.com/posts');
 		xhttp.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
-				callable(this.responseText);
+				// callable(this.responseText);
 			}
 		}
 		xhttp.send();

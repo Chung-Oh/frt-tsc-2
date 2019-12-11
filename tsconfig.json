@@ -1,11 +1,14 @@
 {
 	"compilerOptions": {
-		"target": "es5", // versão javascript a ser compilado
+		"target": "es2015", // versão javascript a ser compilado
 		"module": "amd", // para trabalhar com módulo em JS
 		"rootDir": "src", // raiz da nossa aplicação
 		"outDir": "public/js", // alvo da compilação
 		"sourceMap": true, // ativa source map para debug client, no devtools do browser irá ter acesso no src/
-		"inlineSources": true // ativa source map para debug client com servidores(aqui Live Server)
+		"inlineSources": true, // ativa source map para debug client com servidores(aqui Live Server)
+		// Por default typeRoots = ["node_modules/@types"]
+		"typeRoots": ["node_modules/"], // caminhos de onde estão os tipos que vão ser usados por TS, serão compilados para Aplicação
+		"types": ["es6-promise"], // os tipos que serão usados para compilação
 	},
 	"files": [
 		"src/test.ts"
