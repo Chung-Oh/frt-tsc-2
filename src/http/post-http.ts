@@ -1,4 +1,6 @@
-import Http from "./http";
+import Http from './http';
+import Response from './response';
+import PostTable from '../components/post-table';
 
 interface Callable {
 	(posts: Array<any>)
@@ -13,8 +15,9 @@ export default class PostHttp {
 
 	query() {
 		this.http.get('https://jsonplaceholder.typicode.com/posts')
-			.then(function (responseText) {
-				console.log(JSON.parse(responseText));
+			.then(function (response: Response) {
+				console.log(JSON.parse(response.body));
+				new PostTable('#my-table>tbody', JSON.parse(response.body), ['title', 'body']).make();
 			});
 	}
 
