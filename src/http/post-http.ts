@@ -13,11 +13,11 @@ export default class PostHttp {
 		this.http = new Http();
 	}
 
-	query() {
-		this.http.get('https://jsonplaceholder.typicode.com/posts')
+	query(): Promise<Array<any>> {
+		return this.http.get('https://jsonplaceholder.typicode.com/posts')
 			.then(function (response: Response) {
 				console.log(JSON.parse(response.body));
-				new PostTable('#my-table>tbody', JSON.parse(response.body), ['title', 'body']).make();
+				return JSON.parse(response.body);
 			});
 	}
 

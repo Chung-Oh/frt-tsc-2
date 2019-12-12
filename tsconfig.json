@@ -11,6 +11,7 @@
 		"types": ["es6-promise"], // os tipos que serão usados para compilação
 	},
 	"files": [
-		"src/test.ts"
+		"src/test.ts",
+		"src/page/post-list-page.ts"
 	]
 }

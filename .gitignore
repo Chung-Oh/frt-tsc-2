@@ -1,3 +1,2 @@
 node_modules/
-public/js/*.js.map
-public/js/http/*.js.map
+public/js/**/*.js.map
