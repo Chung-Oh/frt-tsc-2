@@ -1,5 +1,7 @@
 # Typescript in practice with HTTP
 
+Here was implemented Promise standard.
+
 **API**
 
 Used JSONPlaceholder API for post data (https://jsonplaceholder.typicode.com/posts)

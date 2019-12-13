@@ -13,9 +13,13 @@ export default class PostListPage implements Page {
 
 	getPosts() {
 		this.postHttp.query()
-			.then(posts => {
+			.then(posts => { // resolve da Promise
 				this.postTable.data = posts;
 				this.postTable.make();
+			})
+			.catch((response: Response) => {
+				// Aqui o reject da Promise
+				console.log(response);
 			});
 	}
 }

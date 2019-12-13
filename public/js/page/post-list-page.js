@@ -15,6 +15,10 @@ define(["require", "exports", "../http/post-http", "../components/post-table"], 
                 .then(posts => {
                 this.postTable.data = posts;
                 this.postTable.make();
+            })
+                .catch((response) => {
+                // Aqui o reject da Promise
+                console.log(response);
             });
         }
     }

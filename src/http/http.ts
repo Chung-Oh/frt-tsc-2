@@ -35,10 +35,12 @@ export default class Http {
 				// metodo 'startsWith()' abaixo, vai ser true se começar na casa do 200
 				if (this.status.toString().startsWith('20')) {
 					resolve(response);
+				} else {
+					if (this.status.toString().startsWith('40') || this.status.toString().startsWith('50')) {
+						reject(response);
+					}
 				}
 			}
-
-			// reject(this.responseText);
 		};
 	}
 }
