@@ -14,6 +14,14 @@ export default class Http {
 		});
 	}
 
+	post(url: string, data): Promise<Response> {
+		return new Promise((resolve, reject) => {
+			let xhttp = this.createXhttp(HttpVerbs.POST, url);
+			this.configureCallbacks(xhttp, resolve, reject);
+			xhttp.send(JSON.stringify(data));
+		});
+	}
+
 	private createXhttp(verb: HttpVerbs, url: string) {
 		let xhttp = new XMLHttpRequest();
 		xhttp.open(verb, url, true);
@@ -24,7 +32,8 @@ export default class Http {
 		xhttp.onreadystatechange = function () {
 			if (this.readyState == 4) {
 				const response = new Response(this.responseText, this.status);
-				if (this.status == 200) {
+				// metodo 'startsWith()' abaixo, vai ser true se começar na casa do 200
+				if (this.status.toString().startsWith('20')) {
 					resolve(response);
 				}
 			}

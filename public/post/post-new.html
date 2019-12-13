@@ -6,20 +6,23 @@
 </head>
 <body>
 	<h1>TypeScript na prática com Http</h1>
-	<h3>Meus posts</h3>
-	<button id="my-button" type="button">Novo</button>
-	<table id="my-table" class="table">
-		<thead>
-			<tr>
-				<th>Título</th>
-				<th>Conteúdo</th>
-			</tr>
-		</thead>
-		<tbody></tbody>
-	</table>
+	<h3>Criar novo post</h3>
+	<button id="my-button" type="button">Listar meus posts</button>
+	<form id="my-form">
+	    <input type="hidden" name="id">
+	    <div class="form-group">
+	        <label for="title">Título</label>
+	        <input type="text" id="title" name="title" placeholder="Título">
+	    </div>
+	    <div class="form-group">
+	        <label for="body">Conteúdo</label>
+	        <textarea id="body" name="body"></textarea>
+	    </div>
+	    <button type="submit">Cadastrar</button>
+	</form>
 	<script>
 		// carregando módulo em main.js
-		var MODULE_INITIALIZER = 'page/post-list-page';
+		var MODULE_INITIALIZER = 'page/post-new-page';
 	</script>
 	<!-- Biblioteca https://requirejs.org/ é importado em CDN para trabalhar com módulos -->
     <!-- trabalhando com AMD(Asynchronous Modules Definition) conforme configurado em tsconfig.json -->

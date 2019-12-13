@@ -14,6 +14,13 @@ define(["require", "exports", "./response"], function (require, exports, respons
                 xhttp.send();
             });
         }
+        post(url, data) {
+            return new Promise((resolve, reject) => {
+                let xhttp = this.createXhttp(HttpVerbs.POST, url);
+                this.configureCallbacks(xhttp, resolve, reject);
+                xhttp.send(JSON.stringify(data));
+            });
+        }
         createXhttp(verb, url) {
             let xhttp = new XMLHttpRequest();
             xhttp.open(verb, url, true);
@@ -23,7 +30,8 @@ define(["require", "exports", "./response"], function (require, exports, respons
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4) {
                     const response = new response_1.default(this.responseText, this.status);
-                    if (this.status == 200) {
+                    // metodo 'startsWith()' abaixo, vai ser true se começar na casa do 200
+                    if (this.status.toString().startsWith('20')) {
                         resolve(response);
                     }
                 }

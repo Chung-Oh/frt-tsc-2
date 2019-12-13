@@ -8,27 +8,25 @@ interface Callable {
 
 export default class PostHttp {
 	private http: Http;
+	private url: string = 'https://jsonplaceholder.typicode.com/posts';
 
 	constructor() {
 		this.http = new Http();
 	}
 
 	query(): Promise<Array<any>> {
-		return this.http.get('https://jsonplaceholder.typicode.com/posts')
+		return this.http.get(this.url)
 			.then(function (response: Response) {
 				console.log(JSON.parse(response.body));
 				return JSON.parse(response.body);
 			});
 	}
 
-	save() {
-		let xhttp = new XMLHttpRequest();
-		xhttp.open('GET', 'https://jsonplaceholder.typicode.com/posts');
-		xhttp.onreadystatechange = function () {
-			if (this.readyState == 4 && this.status == 200) {
-				// callable(this.responseText);
-			}
-		}
-		xhttp.send();
+	save(data: {title: string, body: string}): Promise<object> {
+		return this.http.post(this.url, data)
+			.then(function (response: Response) {
+				console.log(JSON.parse(response.body));
+				return JSON.parse(response.body);
+			});
 	}
 }

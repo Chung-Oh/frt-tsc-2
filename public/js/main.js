@@ -6,16 +6,16 @@
 
 // Chamando lib requirejs para configurar módulos principais que irão ser carregados
 requirejs.config({
-	baseUrl: '../js', // caminho de pastas que irá ser carregado através do Js via Ajax
-	paths: {
-		// "moduleName": "fileName"
+	baseUrl: '/js', // caminho de pastas que irá ser carregado através do Js via Ajax
+	paths: { // "moduleName": "fileName"
 		"test": "test",
 		// "module1": "module1"
-		"page/post-list-page": "page/post-list-page"
+		"page/post-list-page": "page/post-list-page",
+		"page/post-new-page": "page/post-new-page"
 	}
 });
 
 // Iniciando a aplicação
-requirejs(['page/post-list-page'], function () {
+requirejs([MODULE_INITIALIZER], function () {
 
 });

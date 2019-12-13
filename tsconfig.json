@@ -12,6 +12,7 @@
 	},
 	"files": [
 		"src/test.ts",
-		"src/page/post-list-page.ts"
+		"src/page/post-list-page.ts",
+		"src/page/post-new-page.ts"
 	]
 }
